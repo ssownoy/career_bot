@@ -5,8 +5,8 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 
 logging.basicConfig(level=logging.INFO)
 
-BOT_TOKEN = "8729966128:AAHRfG54_PiLU7zklY9O3KDhqocsVf8jLMk"
-GROQ_API_KEY = "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"  # вставь свой ключ
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY")  # вставь свой ключ
 
 from groq import Groq
 client = Groq(api_key=GROQ_API_KEY)
