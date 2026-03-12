@@ -39,10 +39,10 @@ TEXTS = {
         "pro_btn": "⭐ Купить Pro — 50 Stars",
         "site_btn": "🌐 Бесплатно на сайте",
         "lang_btn": "🇬🇧 Switch to English",
-        "roast_prompt": "📄 Отправь текст резюме — разберу по косточкам!",
-        "cover_prompt": "📄 Отправь резюме и вакансию через\n\n---\n\n[резюме]\n---\n[вакансия]",
-        "interview_prompt": "📄 Отправь описание вакансии — подготовлю 10 вопросов с ответами!",
-        "linkedin_prompt": "📄 Отправь резюме — создам LinkedIn Bio!",
+        "roast_prompt": "📄 Отправь своё резюме — дам честную оценку, найду слабые места и скажу что улучшить.",
+        "cover_prompt": "📄 Отправь резюме и описание вакансии.\n\nФормат:\n<b>[твоё резюме]</b>\n---\n<b>[описание вакансии]</b>",
+        "interview_prompt": "📄 Отправь описание вакансии — подготовлю 10 вопросов которые скорее всего зададут, с готовыми ответами.",
+        "linkedin_prompt": "📄 Отправь резюме — напишу профессиональный LinkedIn Bio который выделит тебя среди других.",
         "limit_reached": (
             "❌ <b>Бесплатные запросы закончились</b>\n\n"
             "Варианты:\n"
@@ -82,10 +82,10 @@ TEXTS = {
         "pro_btn": "⭐ Buy Pro — 50 Stars",
         "site_btn": "🌐 Free on website",
         "lang_btn": "🇷🇺 Переключить на русский",
-        "roast_prompt": "📄 Send your resume text — I'll roast it!",
-        "cover_prompt": "📄 Send your resume and job description separated by\n\n---\n\n[resume]\n---\n[job description]",
-        "interview_prompt": "📄 Send the job description — I'll prepare 10 questions with answers!",
-        "linkedin_prompt": "📄 Send your resume — I'll create a LinkedIn Bio!",
+        "roast_prompt": "📄 Send your resume — I'll give an honest score, find weak spots and tell you exactly what to improve.",
+        "cover_prompt": "📄 Send your resume and job description.\n\nFormat:\n<b>[your resume]</b>\n---\n<b>[job description]</b>",
+        "interview_prompt": "📄 Send job description — I'll prepare 10 likely interview questions with strong answers.",
+        "linkedin_prompt": "📄 Send your resume — I'll write a professional LinkedIn Bio that makes you stand out.",
         "limit_reached": (
             "❌ <b>Free requests used up</b>\n\n"
             "Options:\n"
