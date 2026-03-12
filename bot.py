@@ -182,6 +182,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             title=t(user_id, "pay_title"),
             description=t(user_id, "pay_desc"),
             payload="pro_50_requests",
+            provider_token="",
             currency="XTR",  # Telegram Stars
             prices=[LabeledPrice(label="Pro", amount=STARS_PRICE)],
         )
