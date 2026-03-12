@@ -206,7 +206,12 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "interview": t(user_id, "interview_prompt"),
         "linkedin": t(user_id, "linkedin_prompt"),
     }
-    await query.message.reply_text(prompts[query.data])
+    await query.message.reply_text(
+        prompts[query.data],
+        reply_markup=InlineKeyboardMarkup([
+            [InlineKeyboardButton(t(user_id, "menu_btn"), callback_data="main_menu")]
+        ])
+    )
 
 async def precheckout(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.pre_checkout_query.answer(ok=True)
