@@ -61,6 +61,7 @@ TEXTS = {
         "cover_sys": "Ты профессиональный HR. Напиши сопроводительное письмо на основе резюме и вакансии (разделены ---). Отвечай на русском.",
         "interview_sys": "Ты опытный интервьюер. Подготовь 10 вероятных вопросов с ответами на основе описания вакансии. Отвечай на русском.",
         "linkedin_sys": "Ты профессиональный копирайтер. Создай LinkedIn Bio на основе резюме. Кратко, профессионально. Отвечай на русском.",
+        "menu_btn": "🏠 Главное меню",
     },
     "en": {
         "welcome": (
@@ -103,6 +104,7 @@ TEXTS = {
         "cover_sys": "You are a professional HR. Write a cover letter based on the resume and job description (separated by ---). Reply in English.",
         "interview_sys": "You are an experienced interviewer. Prepare 10 likely questions with answers based on the job description. Reply in English.",
         "linkedin_sys": "You are a professional copywriter. Create a LinkedIn Bio based on the resume. Keep it brief and professional. Reply in English.",
+        "menu_btn": "🏠 Main Menu",
     }
 }
 
@@ -142,6 +144,14 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         parse_mode="HTML"
     )
 
+async def menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    await update.message.reply_text(
+        t(user_id, "welcome"),
+        reply_markup=main_keyboard(user_id),
+        parse_mode="HTML"
+    )
+
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
@@ -150,6 +160,14 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if query.data == "switch_lang":
         current = user_lang.get(user_id, "ru")
         user_lang[user_id] = "en" if current == "ru" else "ru"
+        await query.message.reply_text(
+            t(user_id, "welcome"),
+            reply_markup=main_keyboard(user_id),
+            parse_mode="HTML"
+        )
+        return
+
+    if query.data == "main_menu":
         await query.message.reply_text(
             t(user_id, "welcome"),
             reply_markup=main_keyboard(user_id),
@@ -245,6 +263,12 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         await update.message.reply_text(result)
         await update.message.reply_text(status_msg, reply_markup=main_keyboard(user_id))
+        await update.message.reply_text(
+            t(user_id, "menu_btn"),
+            reply_markup=InlineKeyboardMarkup([
+                [InlineKeyboardButton(t(user_id, "menu_btn"), callback_data="main_menu")]
+            ])
+        )
         user_state[user_id] = None
 
     except Exception as e:
@@ -253,6 +277,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def main():
     app = Application.builder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("menu", menu))
     app.add_handler(CallbackQueryHandler(button))
     app.add_handler(PreCheckoutQueryHandler(precheckout))
     app.add_handler(MessageHandler(filters.SUCCESSFUL_PAYMENT, successful_payment))
