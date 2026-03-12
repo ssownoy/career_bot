@@ -65,6 +65,8 @@ TEXTS = {
         "interview_sys": "Ты опытный интервьюер. Подготовь 10 вероятных вопросов с ответами на основе описания вакансии. Отвечай на русском.",
         "linkedin_sys": "Ты профессиональный копирайтер. Создай LinkedIn Bio на основе резюме. Кратко, профессионально. Отвечай на русском.",
         "menu_btn": "🏠 Главное меню",
+        "rewrite_after_roast_btn": "✨ Теперь перепиши его",
+        "copy_hint": "☝️ Нажми и удержи текст выше чтобы скопировать",
     },
     "en": {
         "welcome": (
@@ -111,6 +113,8 @@ TEXTS = {
         "interview_sys": "You are an experienced interviewer. Prepare 10 likely questions with answers based on the job description. Reply in English.",
         "linkedin_sys": "You are a professional copywriter. Create a LinkedIn Bio based on the resume. Keep it brief and professional. Reply in English.",
         "menu_btn": "🏠 Main Menu",
+        "rewrite_after_roast_btn": "✨ Now rewrite it",
+        "copy_hint": "☝️ Press and hold the text above to copy",
     }
 }
 
@@ -275,14 +279,25 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             remaining = FREE_LIMIT - get_requests(user_id)
             status_msg = t(user_id, "done").format(remaining)
 
-        await update.message.reply_text(result)
-        await update.message.reply_text(status_msg, reply_markup=main_keyboard(user_id))
-        await update.message.reply_text(
-            t(user_id, "menu_btn"),
-            reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton(t(user_id, "menu_btn"), callback_data="main_menu")]
-            ])
-        )
+        if state == "roast":
+            await update.message.reply_text(result)
+            await update.message.reply_text(
+                t(user_id, "copy_hint"),
+                reply_markup=InlineKeyboardMarkup([
+                    [InlineKeyboardButton(t(user_id, "rewrite_after_roast_btn"), callback_data="rewrite")],
+                    [InlineKeyboardButton(t(user_id, "menu_btn"), callback_data="main_menu")],
+                ])
+            )
+        else:
+            await update.message.reply_text(result)
+            await update.message.reply_text(
+                t(user_id, "copy_hint"),
+                reply_markup=InlineKeyboardMarkup([
+                    [InlineKeyboardButton(t(user_id, "menu_btn"), callback_data="main_menu")],
+                ])
+            )
+
+        await update.message.reply_text(status_msg)
         user_state[user_id] = None
 
     except Exception as e:
