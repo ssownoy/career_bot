@@ -40,9 +40,12 @@ TEXTS = {
         "site_btn": "🌐 Бесплатно на сайте",
         "lang_btn": "🇬🇧 Switch to English",
         "roast_prompt": "📄 Отправь своё резюме — дам честную оценку, найду слабые места и скажу что улучшить.",
-        "cover_prompt": "📄 Отправь резюме и описание вакансии.\n\nФормат:\n<b>[твоё резюме]</b>\n---\n<b>[описание вакансии]</b>",
+        "cover_prompt": "📄 Отправь резюме и описание вакансии.\n\nФормат:\n[твоё резюме]\n---\n[описание вакансии]",
         "interview_prompt": "📄 Отправь описание вакансии — подготовлю 10 вопросов которые скорее всего зададут, с готовыми ответами.",
         "linkedin_prompt": "📄 Отправь резюме — напишу профессиональный LinkedIn Bio который выделит тебя среди других.",
+        "rewrite_btn": "✨ Переписать резюме",
+        "rewrite_prompt": "📄 Отправь своё резюме — перепишу его так, чтобы оно выглядело профессионально и цепляло рекрутеров.",
+        "rewrite_sys": "Ты профессиональный карьерный коуч. Перепиши резюме пользователя: сделай его чётким, профессиональным, с сильными глаголами и конкретными достижениями. Сохрани структуру но улучши каждый пункт. Отвечай на русском.",
         "limit_reached": (
             "❌ <b>Бесплатные запросы закончились</b>\n\n"
             "Варианты:\n"
@@ -83,9 +86,12 @@ TEXTS = {
         "site_btn": "🌐 Free on website",
         "lang_btn": "🇷🇺 Переключить на русский",
         "roast_prompt": "📄 Send your resume — I'll give an honest score, find weak spots and tell you exactly what to improve.",
-        "cover_prompt": "📄 Send your resume and job description.\n\nFormat:\n<b>[your resume]</b>\n---\n<b>[job description]</b>",
+        "cover_prompt": "📄 Send your resume and job description.\n\nFormat:\n[your resume]\n---\n[job description]",
         "interview_prompt": "📄 Send job description — I'll prepare 10 likely interview questions with strong answers.",
         "linkedin_prompt": "📄 Send your resume — I'll write a professional LinkedIn Bio that makes you stand out.",
+        "rewrite_btn": "✨ Rewrite Resume",
+        "rewrite_prompt": "📄 Send your resume — I'll rewrite it to look professional and catch recruiters' attention.",
+        "rewrite_sys": "You are a professional career coach. Rewrite user's resume: make it clear, professional, with strong action verbs and specific achievements. Keep the structure but improve every point. Reply in English.",
         "limit_reached": (
             "❌ <b>Free requests used up</b>\n\n"
             "Options:\n"
@@ -131,6 +137,7 @@ def main_keyboard(user_id):
         [InlineKeyboardButton(t(user_id, "cover_btn"), callback_data="cover")],
         [InlineKeyboardButton(t(user_id, "interview_btn"), callback_data="interview")],
         [InlineKeyboardButton(t(user_id, "linkedin_btn"), callback_data="linkedin")],
+        [InlineKeyboardButton(t(user_id, "rewrite_btn"), callback_data="rewrite")],
         [InlineKeyboardButton(t(user_id, "pro_btn"), callback_data="buy_pro")],
         [InlineKeyboardButton(t(user_id, "site_btn"), url="https://career-suite-seven.vercel.app")],
         [InlineKeyboardButton(t(user_id, "lang_btn"), callback_data="switch_lang")],
@@ -205,6 +212,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "cover": t(user_id, "cover_prompt"),
         "interview": t(user_id, "interview_prompt"),
         "linkedin": t(user_id, "linkedin_prompt"),
+        "rewrite": t(user_id, "rewrite_prompt"),
     }
     await query.message.reply_text(
         prompts[query.data],
