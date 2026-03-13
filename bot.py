@@ -17,6 +17,7 @@ user_lang = {}
 user_paid = {}
 
 FREE_LIMIT = 3
+ADMIN_IDS = [6458271675]
 STARS_PRICE = 50  # 50 Telegram Stars = ~1$
 
 TEXTS = {
@@ -126,9 +127,13 @@ def get_requests(user_id):
     return user_requests.get(user_id, 0)
 
 def increment_requests(user_id):
+    if user_id in ADMIN_IDS:
+        return
     user_requests[user_id] = get_requests(user_id) + 1
 
 def has_access(user_id):
+    if user_id in ADMIN_IDS:
+        return True
     paid = user_paid.get(user_id, 0)
     if paid > 0:
         return True
