@@ -46,7 +46,7 @@ TEXTS = {
         "linkedin_prompt": "📄 Отправь резюме — напишу профессиональный LinkedIn Bio который выделит тебя среди других.",
         "rewrite_btn": "✨ Переписать резюме",
         "rewrite_prompt": "📄 Отправь своё резюме — перепишу его так, чтобы оно выглядело профессионально и цепляло рекрутеров.",
-        "rewrite_sys": "Ты профессиональный карьерный коуч. Перепиши резюме пользователя: сделай его чётким, профессиональным, с сильными глаголами и конкретными достижениями. Сохрани структуру но улучши каждый пункт. Отвечай на русском.",
+        "rewrite_sys": "Ты профессиональный карьерный коуч. Перепиши резюме пользователя: сделай его чётким, профессиональным, с сильными глаголами и конкретными достижениями. Сохрани структуру но улучши каждый пункт. Отвечай на русском. Форматируй ответ простым текстом без markdown, без звёздочек, без решёток. Используй только цифры, тире и переносы строк.",
         "limit_reached": (
             "❌ <b>Бесплатные запросы закончились</b>\n\n"
             "Варианты:\n"
@@ -61,10 +61,10 @@ TEXTS = {
         "pay_desc": "50 запросов к AI карьерным инструментам",
         "pay_success": "🎉 Оплата прошла! Теперь у тебя <b>50 запросов</b> ⭐\n\nИспользуй /start чтобы начать.",
         "error": "❌ Ошибка: {}",
-        "roast_sys": "Ты жёсткий но честный карьерный коуч. Разбери резюме: дай оценку 0-100, укажи 5 слабых мест и 5 конкретных улучшений. Отвечай на русском.",
-        "cover_sys": "Ты профессиональный HR. Напиши сопроводительное письмо на основе резюме и вакансии (разделены ---). Отвечай на русском.",
-        "interview_sys": "Ты опытный интервьюер. Подготовь 10 вероятных вопросов с ответами на основе описания вакансии. Отвечай на русском.",
-        "linkedin_sys": "Ты профессиональный копирайтер. Создай LinkedIn Bio на основе резюме. Кратко, профессионально. Отвечай на русском.",
+        "roast_sys": "Ты жёсткий но честный карьерный коуч. Разбери резюме: дай оценку 0-100, укажи 5 слабых мест и 5 конкретных улучшений. Отвечай на русском. Форматируй ответ простым текстом без markdown, без звёздочек, без решёток. Используй только цифры, тире и переносы строк.",
+        "cover_sys": "Ты профессиональный HR. Напиши сопроводительное письмо на основе резюме и вакансии (разделены ---). Отвечай на русском. Форматируй ответ простым текстом без markdown, без звёздочек, без решёток. Используй только цифры, тире и переносы строк.",
+        "interview_sys": "Ты опытный интервьюер. Подготовь 10 вероятных вопросов с ответами на основе описания вакансии. Отвечай на русском. Форматируй ответ простым текстом без markdown, без звёздочек, без решёток. Используй только цифры, тире и переносы строк.",
+        "linkedin_sys": "Ты профессиональный копирайтер. Создай LinkedIn Bio на основе резюме. Кратко, профессионально. Отвечай на русском. Форматируй ответ простым текстом без markdown, без звёздочек, без решёток. Используй только цифры, тире и переносы строк.",
         "menu_btn": "🏠 Главное меню",
         "rewrite_after_roast_btn": "✨ Теперь перепиши его",
         "copy_hint": "☝️ Нажми и удержи текст выше чтобы скопировать",
@@ -94,7 +94,7 @@ TEXTS = {
         "linkedin_prompt": "📄 Send your resume — I'll write a professional LinkedIn Bio that makes you stand out.",
         "rewrite_btn": "✨ Rewrite Resume",
         "rewrite_prompt": "📄 Send your resume — I'll rewrite it to look professional and catch recruiters' attention.",
-        "rewrite_sys": "You are a professional career coach. Rewrite user's resume: make it clear, professional, with strong action verbs and specific achievements. Keep the structure but improve every point. Reply in English.",
+        "rewrite_sys": "You are a professional career coach. Rewrite the user's resume: make it clear, professional, with strong action verbs and specific achievements. Keep the structure but improve every point. Reply in English. Format the response as plain text without markdown, no asterisks, no hashtags. Use only numbers, dashes and line breaks.",
         "limit_reached": (
             "❌ <b>Free requests used up</b>\n\n"
             "Options:\n"
@@ -109,10 +109,10 @@ TEXTS = {
         "pay_desc": "50 requests to AI career tools",
         "pay_success": "🎉 Payment successful! You now have <b>50 requests</b> ⭐\n\nUse /start to begin.",
         "error": "❌ Error: {}",
-        "roast_sys": "You are a harsh but honest career coach. Review the resume: give a score 0-100, list 5 weaknesses and 5 concrete improvements. Reply in English.",
-        "cover_sys": "You are a professional HR. Write a cover letter based on the resume and job description (separated by ---). Reply in English.",
-        "interview_sys": "You are an experienced interviewer. Prepare 10 likely questions with answers based on the job description. Reply in English.",
-        "linkedin_sys": "You are a professional copywriter. Create a LinkedIn Bio based on the resume. Keep it brief and professional. Reply in English.",
+        "roast_sys": "You are a harsh but honest career coach. Review the resume: give a score 0-100, list 5 weaknesses and 5 concrete improvements. Reply in English. Format the response as plain text without markdown, no asterisks, no hashtags. Use only numbers, dashes and line breaks.",
+        "cover_sys": "You are a professional HR. Write a cover letter based on the resume and job description (separated by ---). Reply in English. Format the response as plain text without markdown, no asterisks, no hashtags. Use only numbers, dashes and line breaks.",
+        "interview_sys": "You are an experienced interviewer. Prepare 10 likely questions with answers based on the job description. Reply in English. Format the response as plain text without markdown, no asterisks, no hashtags. Use only numbers, dashes and line breaks.",
+        "linkedin_sys": "You are a professional copywriter. Create a LinkedIn Bio based on the resume. Keep it brief and professional. Reply in English. Format the response as plain text without markdown, no asterisks, no hashtags. Use only numbers, dashes and line breaks.",
         "menu_btn": "🏠 Main Menu",
         "rewrite_after_roast_btn": "✨ Now rewrite it",
         "copy_hint": "☝️ Press and hold the text above to copy",
@@ -285,7 +285,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             status_msg = t(user_id, "done").format(remaining)
 
         if state == "roast":
-            await update.message.reply_text(result)
+            await update.message.reply_text(result, parse_mode=None)
             await update.message.reply_text(
                 t(user_id, "copy_hint"),
                 reply_markup=InlineKeyboardMarkup([
@@ -294,7 +294,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 ])
             )
         else:
-            await update.message.reply_text(result)
+            await update.message.reply_text(result, parse_mode=None)
             await update.message.reply_text(
                 t(user_id, "copy_hint"),
                 reply_markup=InlineKeyboardMarkup([
